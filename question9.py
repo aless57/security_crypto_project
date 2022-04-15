@@ -1,4 +1,3 @@
-#pip install scipy
 import fractions
 import scipy.stats as stats
 import math
@@ -67,20 +66,19 @@ def STM(graine,nbMax):
     return tab 
 
 def Runs(x, nb):
-    un = 0
     pvalue = []
     for nombre in x:
         chaine = ""
+        val = 0
+        un=0
         cbin = format(nombre, "b")
         for chiffre in cbin:
             if (chiffre == "1"):
                 un +=1
         res = un / nb
-        un=0
         if((res - 0.5 ) >= (2 / math.sqrt(nb))):
             pvalue.append(0)
         else:
-            val = 0
             for i in range(0, len(chaine)-1):
                 if (chaine[i] != chaine[i+1]):
                     val +=1

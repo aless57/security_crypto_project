@@ -1,4 +1,3 @@
-#pip install scipy
 import scipy.stats as stats
 import math
 import random

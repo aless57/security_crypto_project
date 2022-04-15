@@ -1,4 +1,3 @@
-##pip install xlwt
 import xlwt
 import math
 import random
