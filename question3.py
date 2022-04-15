@@ -1,6 +1,7 @@
 def main():
+    vGLOBAL = 1315
     print("Test de VonNeuman avec 1315")
-    graine = 1315
+    graine = vGLOBAL
     print("Nombre de base : ")
     print(graine)
     graine = VonNeuman(graine)
@@ -13,6 +14,9 @@ def VonNeuman(graine):
         res = str(graine)
         res = res[1:-1]    
         graine = int(res)
+    fichier = open("test.txt","w")
+    fichier.write(str(graine))
+    fichier.close()
     return graine
 
 

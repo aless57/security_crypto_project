@@ -1,3 +1,4 @@
+##pip install xlwt
 import xlwt
 import math
 import random
@@ -38,15 +39,30 @@ def STM(graine,nbMax):
         tab.append(graine)
     return tab 
 
+fichier = open("test.txt","w")
+fichier.write("Von Neumann:\n")
 nbMax = 1000
-valVonNeuman = VonNeuman(1315)
-tabRANDU = RANDU(1315,nbMax)
-tabSTM = STM(1315,nbMax)
+vGLOBAL = 1315
+valVonNeuman = VonNeuman(vGLOBAL)
+fichier.write(str(valVonNeuman)+"\n")
+tabRANDU = RANDU(vGLOBAL,nbMax)
+tabSTM = STM(vGLOBAL,nbMax)
+
+
 for i in range(1,nbMax):
     sheetRAND.write(i-1,0,random.randint(0,9999))
     sheetVonNeumann.write(i-1,0,valVonNeuman)
     sheetSTM.write(i-1,0,tabSTM[i-1])
     sheetRANDU.write(i-1,0,tabRANDU[i-1])
     valVonNeuman = VonNeuman(valVonNeuman)
+    fichier.write(str(valVonNeuman)+"\n")
 
+fichier.write("RANDU:\n")
+for i in tabRANDU:
+    fichier.write(str(i)+"\n")
+fichier.write("STM:\n")
+for i in tabSTM:
+    fichier.write(str(i)+"\n")
+
+fichier.close()
 wb.save('excel_question6.xls')
