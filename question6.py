@@ -43,10 +43,10 @@ valVonNeuman = VonNeuman(1315)
 tabRANDU = RANDU(1315,nbMax)
 tabSTM = STM(1315,nbMax)
 for i in range(1,nbMax):
-    sheetRAND.write(i,0,random.randint(0,9999))
-    sheetVonNeumann.write(i,0,valVonNeuman)
-    sheetSTM.write(i,0,tabSTM[i-1])
-    sheetRANDU.write(i,0,tabRANDU[i-1])
+    sheetRAND.write(i-1,0,random.randint(0,9999))
+    sheetVonNeumann.write(i-1,0,valVonNeuman)
+    sheetSTM.write(i-1,0,tabSTM[i-1])
+    sheetRANDU.write(i-1,0,tabRANDU[i-1])
     valVonNeuman = VonNeuman(valVonNeuman)
-  
-wb.save('excel_question6.xlsx')
+
+wb.save('excel_question6.xls')
