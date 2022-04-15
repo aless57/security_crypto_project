@@ -2,23 +2,23 @@ import math
 
 
 def main():
-    print("Test du générateur à congruence linéaireSTM avec 1315")
+    print("Test du générateur à congruence linéaireSTM avec 1315 pendant 1000 tours")
     graine = 1315
     print("Nombre de base : ")
     print(graine)
-    graine = STM(graine)
+    tabRes = STM(graine,1000)
     print("Apres générateur à congruence linéaire STM : ")
-    print(graine)
+    print(tabRes)
 
-def STM(graine):
+def STM(graine,nbMax):
     a = 16807
     b = 0
     m = int(math.pow(2,31) - 1)
-    print(m)
-    for t in range(0,m):
+    tab = [graine]
+    for t in range(0,nbMax-1):
         graine = (a*graine+b) % m
-        print(graine)
-    return graine 
+        tab.append(graine)
+    return tab 
 
 
 
